@@ -51,7 +51,7 @@ export class ListWorkspacesCtrl {
 
   isExactMatch: boolean = false;
   namespaceFilter: {namespace: string};
-  namespaceLabels: string[];
+  namespaceLabels: INamespace[];
   onFilterChanged: Function;
 
   /**
