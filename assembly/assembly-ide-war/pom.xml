@@ -287,6 +287,10 @@
             <artifactId>plugin-terminal-ui</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.eclipse.che.sample</groupId>
+            <artifactId>che-sample-plugin-perpective-ide</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.google.gwt</groupId>
             <artifactId>gwt-user</artifactId>
             <scope>provided</scope>
