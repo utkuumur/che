@@ -13,11 +13,10 @@ package org.eclipse.che.plugin.parts.ide.helloworldview;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.RequiresResize;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
 
@@ -26,7 +25,6 @@ import org.eclipse.che.ide.api.parts.PartStackView;
 import org.eclipse.che.plugin.parts.ide.SamplePartsResources;
 
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -34,41 +32,38 @@ import java.util.List;
  *
  * @author Dmitry Shnurenko
  */
-public class SampleViewImpl extends Composite implements SampleView, PartStackView, RequiresResize {
+public class SampleViewImpl extends Composite implements SampleView, PartStackView {
     interface MachineInfoContainerUiBinder extends UiBinder<Widget, SampleViewImpl> {
     }
 
     private final static MachineInfoContainerUiBinder UI_BINDER = GWT.create(MachineInfoContainerUiBinder.class);
 
-    private final Label          unavailableLabel;
-    private final List<IsWidget> tabContainers;
-
     @UiField
-    FlowPanel mainContainer;
+    Button button;
 
     @Inject
     public SampleViewImpl(SamplePartsResources resources, Label unavailableLabel) {
         initWidget(UI_BINDER.createAndBindUi(this));
-        this.unavailableLabel = unavailableLabel;
-        this.tabContainers = new ArrayList<>();
         setMaximized(false);
+        button.addClickHandler(clickEvent -> com.google.gwt.user.client.Window.alert("dfsdkfjsdkjf"));
     }
 
     /** {@inheritDoc} */
     @Override
     public void showContainer(@NotNull IsWidget tabContainer) {
          tabContainer.asWidget().setVisible(true);
+
     }
 
-    @Override
-    public void onResize() {
-        for (int i = 0; i < mainContainer.getWidgetCount(); i++) {
-            Widget widget = mainContainer.getWidget(i);
-            if (widget instanceof RequiresResize) {
-                ((RequiresResize)widget).onResize();
-            }
-        }
-    }
+//    @Override
+//    public void onResize() {
+//        for (int i = 0; i < mainContainer.getWidgetCount(); i++) {
+//            Widget widget = mainContainer.getWidget(i);
+//            if (widget instanceof RequiresResize) {
+//                ((RequiresResize)widget).onResize();
+//            }
+//        }
+//    }
 
     /** {@inheritDoc} */
     @Override

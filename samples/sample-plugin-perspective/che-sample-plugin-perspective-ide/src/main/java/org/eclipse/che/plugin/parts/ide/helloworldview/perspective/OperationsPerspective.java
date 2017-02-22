@@ -29,6 +29,7 @@ import org.eclipse.che.providers.DynaProvider;
 import javax.validation.constraints.NotNull;
 
 import static org.eclipse.che.ide.api.parts.PartStackType.EDITING;
+import static org.eclipse.che.ide.api.parts.PartStackType.INFORMATION;
 import static org.eclipse.che.ide.api.parts.PartStackType.NAVIGATION;
 
 /**
@@ -57,8 +58,8 @@ public class OperationsPerspective extends AbstractPerspective {
         //central panel
         partStacks.put(EDITING, samplePresenter);
 
-//        addPart(helloWorldPresenter, NAVIGATION);
-        addPart(helloWorldPresenter2, EDITING);
+        addPart(helloWorldPresenter, NAVIGATION);
+        addPart(helloWorldPresenter2, INFORMATION);
 //
 //        setActivePart(machinePanel);
 //        PartStack information = getPartStack(INFORMATION);
