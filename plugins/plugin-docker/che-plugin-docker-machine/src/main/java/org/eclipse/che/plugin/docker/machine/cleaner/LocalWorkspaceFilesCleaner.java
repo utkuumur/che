@@ -49,7 +49,9 @@ public class LocalWorkspaceFilesCleaner implements WorkspaceFilesCleaner {
         String workspacePath = workspaceFolderPathProvider.getPathByName(workspace.getConfig().getName());
         if (!workspacePath.equals(hostProjectsFolder)) {
             // Remove the workspace folder located in the Che instance docker container.
-            deleteRecursive(new File(workspacePath.replace(getenv("CHE_INSTANCE"), "")));
+            File workspaceFolder = new File(workspacePath.replace(getenv("CHE_INSTANCE"), ""));
+            workspaceFolder.setWritable(true);
+            deleteRecursive(workspaceFolder);
         }
     }
 }
