@@ -8,14 +8,13 @@
  * Contributors:
  *   Codenvy, S.A. - initial API and implementation
  *******************************************************************************/
-package org.eclipse.che.plugin.parts.ide.helloworldview;
+package org.eclipse.che.plugin.sample.perspective.ide;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
 import org.eclipse.che.ide.api.parts.base.BasePresenter;
-import org.eclipse.che.plugin.parts.ide.SamplePartsResources;
 import org.vectomatic.dom.svg.ui.SVGResource;
 
 /**
@@ -24,12 +23,12 @@ import org.vectomatic.dom.svg.ui.SVGResource;
  * @author Edgar Mueller
  */
 @Singleton
-public class HelloWorldPresenter extends BasePresenter {
+public class InformationPresenter extends BasePresenter {
 
-    private HelloWorldView view;
+    private InformationView view;
 
     @Inject
-    public HelloWorldPresenter(HelloWorldView view){
+    public InformationPresenter(InformationView view){
         this.view = view;
     }
 
@@ -40,7 +39,7 @@ public class HelloWorldPresenter extends BasePresenter {
 
     @Override
     public SVGResource getTitleImage() {
-        return (SamplePartsResources.INSTANCE.icon());
+        return (CustomPerspectiveResources.INSTANCE.icon());
     }
 
     @Override

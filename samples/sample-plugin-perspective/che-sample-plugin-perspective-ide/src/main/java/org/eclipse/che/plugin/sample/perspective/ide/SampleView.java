@@ -8,30 +8,20 @@
  * Contributors:
  *   Codenvy, S.A. - initial API and implementation
  *******************************************************************************/
-package org.eclipse.che.plugin.parts.ide.helloworldview;
+package org.eclipse.che.plugin.sample.perspective.ide;
 
+import com.google.inject.ImplementedBy;
 
-import org.eclipse.che.ide.api.mvp.View;
-import org.eclipse.che.ide.api.parts.base.BaseActionDelegate;
+import org.eclipse.che.ide.api.parts.PartStackView;
 
 /**
- * Simple view only containing a label.
- *
- * @author Edgar Mueller
  */
-public interface HelloWorldView extends View<HelloWorldView.ActionDelegate> {
+@ImplementedBy(SampleViewImpl.class)
+public interface SampleView extends PartStackView {
 
     /**
-     * Make this view visible.
      *
-     * @param visible whether the view is visible
      */
-    void setVisible(boolean visible);
+    void show();
 
-    /**
-     * Empty action delegate.
-     */
-    interface ActionDelegate extends BaseActionDelegate {
-
-    }
 }

@@ -8,7 +8,7 @@
  * Contributors:
  *   Codenvy, S.A. - initial API and implementation
  *******************************************************************************/
-package org.eclipse.che.plugin.parts.ide.helloworldview;
+package org.eclipse.che.plugin.sample.perspective.ide;
 
 import com.google.gwt.user.client.ui.Label;
 import com.google.inject.Inject;
@@ -17,11 +17,11 @@ import org.eclipse.che.ide.api.parts.PartStackUIResources;
 import org.eclipse.che.ide.api.parts.base.BaseView;
 
 /**
- * Implementation class of the {@link HelloWorldView}.
+ * Implementation class of the {@link InformationView}.
  *
  * @author Edgar Mueller
  */
-public class HelloWorldViewImpl extends BaseView<HelloWorldView.ActionDelegate> implements HelloWorldView {
+public class InformationViewImpl extends BaseView<InformationView.ActionDelegate> implements InformationView {
 
     /**
      * Constructor.
@@ -29,9 +29,9 @@ public class HelloWorldViewImpl extends BaseView<HelloWorldView.ActionDelegate> 
      * @param resources the {@link PartStackUIResources}
      */
     @Inject
-    public HelloWorldViewImpl(PartStackUIResources resources){
+    public InformationViewImpl(PartStackUIResources resources){
         super(resources);
-        Label label = new Label("Hello World");
+        Label label = new Label("Information Part :: Hello World!");
         setContentWidget(label);
     }
 }

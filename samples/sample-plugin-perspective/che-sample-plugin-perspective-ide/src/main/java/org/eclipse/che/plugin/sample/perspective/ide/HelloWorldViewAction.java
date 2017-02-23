@@ -8,13 +8,12 @@
  * Contributors:
  *   Codenvy, S.A. - initial API and implementation
  *******************************************************************************/
-package org.eclipse.che.plugin.parts.ide.helloworldview;
+package org.eclipse.che.plugin.sample.perspective.ide;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import org.eclipse.che.ide.api.action.Action;
 import org.eclipse.che.ide.api.action.ActionEvent;
-import org.eclipse.che.ide.api.parts.PartStackType;
 import org.eclipse.che.ide.api.parts.WorkspaceAgent;
 
 /**
@@ -31,7 +30,7 @@ public class HelloWorldViewAction extends Action {
      * Constructor.
      *
      * @param workspaceAgent the {@link WorkspaceAgent} that will open our sample part
-     * @param helloWorldPresenter the {@link HelloWorldPresenter} displaying the view
+     * @param helloWorldPresenter the {@link NavigationPresenter} displaying the view
      *
      */
     @Inject

@@ -8,14 +8,13 @@
  * Contributors:
  *   Codenvy, S.A. - initial API and implementation
  *******************************************************************************/
-package org.eclipse.che.plugin.parts.ide;
+package org.eclipse.che.plugin.sample.perspective.ide;
 
 import com.google.inject.Inject;
 
 import org.eclipse.che.ide.api.action.ActionManager;
 import org.eclipse.che.ide.api.action.DefaultActionGroup;
 import org.eclipse.che.ide.api.extension.Extension;
-import org.eclipse.che.plugin.parts.ide.helloworldview.HelloWorldViewAction;
 
 import static org.eclipse.che.ide.api.action.IdeActions.GROUP_MAIN_MENU;
 import static org.eclipse.che.ide.api.action.IdeActions.GROUP_RIGHT_TOOLBAR;
@@ -26,7 +25,7 @@ import static org.eclipse.che.ide.api.action.IdeActions.GROUP_RIGHT_TOOLBAR;
  * @author Edgar Mueller
  */
 @Extension(title = "Sample Parts Extension")
-public class SamplePartsExtension {
+public class CustomPerspectiveExtension {
 
     /**
      * Constructor.
@@ -35,7 +34,7 @@ public class SamplePartsExtension {
      * @param action the {@link HelloWorldViewAction} that display the sample view
      */
     @Inject
-    public SamplePartsExtension(ActionManager actionManager, HelloWorldViewAction action, SwitchPerspectiveAction switchPerspectiveAction){
+    public CustomPerspectiveExtension(ActionManager actionManager, HelloWorldViewAction action, SwitchPerspectiveAction switchPerspectiveAction){
         actionManager.registerAction("helloWorldViewAction",action);
         DefaultActionGroup mainMenu = (DefaultActionGroup)actionManager.getAction(GROUP_MAIN_MENU);
 

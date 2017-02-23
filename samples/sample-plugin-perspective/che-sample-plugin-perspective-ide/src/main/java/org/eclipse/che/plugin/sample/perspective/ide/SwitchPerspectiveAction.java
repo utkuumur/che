@@ -8,7 +8,7 @@
  * Contributors:
  *   Codenvy, S.A. - initial API and implementation
  *******************************************************************************/
-package org.eclipse.che.plugin.parts.ide;
+package org.eclipse.che.plugin.sample.perspective.ide;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -24,7 +24,7 @@ import org.eclipse.che.ide.api.parts.PerspectiveManager;
 import org.eclipse.che.ide.ui.radiobuttongroup.RadioButtonGroup;
 
 import static org.eclipse.che.ide.workspace.perspectives.project.ProjectPerspective.PROJECT_PERSPECTIVE_ID;
-import static org.eclipse.che.plugin.parts.ide.helloworldview.perspective.OperationsPerspective.OPERATIONS_PERSPECTIVE_ID;
+import static org.eclipse.che.plugin.sample.perspective.ide.MyCustomPerspective.OPERATIONS_PERSPECTIVE_ID;
 
 /**
  * Action for switching Project/Machine perspectives.
@@ -36,17 +36,17 @@ public class SwitchPerspectiveAction extends Action implements CustomComponentAc
 
     private final PerspectiveManager          perspectiveManager;
 
-    private final RadioButtonGroup radioButtonGroup;
-    private SamplePartsResources resources;
+    private final RadioButtonGroup           radioButtonGroup;
+    private       CustomPerspectiveResources resources;
 
     @Inject
     public SwitchPerspectiveAction(PerspectiveManager perspectiveManager,
                                    RadioButtonGroup radioButtonGroup,
-                                   SamplePartsResources samplePartsResources) {
+                                   CustomPerspectiveResources customPerspectiveResources) {
         super();
         this.perspectiveManager = perspectiveManager;
         this.radioButtonGroup = radioButtonGroup;
-        resources = samplePartsResources;
+        resources = customPerspectiveResources;
 
         createButtons();
     }

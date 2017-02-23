@@ -8,30 +8,30 @@
  * Contributors:
  *   Codenvy, S.A. - initial API and implementation
  *******************************************************************************/
-package org.eclipse.che.plugin.parts.ide;
+package org.eclipse.che.plugin.sample.perspective.ide;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.resources.client.ClientBundle;
 
-import org.vectomatic.dom.svg.ui.SVGResource;
+import org.eclipse.che.ide.api.mvp.View;
+import org.eclipse.che.ide.api.parts.base.BaseActionDelegate;
 
 /**
- * Resources for the Sample Parts extension.
+ * Simple view only containing a label.
  *
  * @author Edgar Mueller
  */
-public interface SamplePartsResources extends ClientBundle {
+public interface NavigationView extends View<NavigationView.ActionDelegate> {
 
     /**
-     * Singleton instance.
-     */
-    SamplePartsResources INSTANCE = GWT.create(SamplePartsResources.class);
-
-    /**
-     * Declares an icon.
+     * Make this view visible.
      *
-     * @return the icon
+     * @param visible whether the view is visible
      */
-    @Source("icons/my.svg")
-    SVGResource icon();
+    void setVisible(boolean visible);
+
+    /**
+     * Empty action delegate.
+     */
+    interface ActionDelegate extends BaseActionDelegate {
+
+    }
 }

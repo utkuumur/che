@@ -20,7 +20,7 @@
         }
     </ui:style>
 
-    <g:FlowPanel ui:field="mainContainer" addStyleNames="{style.fullSize}">
-        <g:Button text="dhdghfdgf" ui:field="button"></g:Button>
+    <g:FlowPanel ui:field="centralPart" addStyleNames="{style.fullSize}">
+        <g:Button text="" ui:field="button"></g:Button>
             </g:FlowPanel>
 </ui:UiBinder>

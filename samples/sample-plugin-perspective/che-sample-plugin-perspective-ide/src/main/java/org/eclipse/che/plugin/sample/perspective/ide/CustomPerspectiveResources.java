@@ -8,30 +8,30 @@
  * Contributors:
  *   Codenvy, S.A. - initial API and implementation
  *******************************************************************************/
-package org.eclipse.che.plugin.parts.ide.helloworldview.ng;
+package org.eclipse.che.plugin.sample.perspective.ide;
 
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.resources.client.ClientBundle;
 
-import org.eclipse.che.ide.api.mvp.View;
-import org.eclipse.che.ide.api.parts.base.BaseActionDelegate;
+import org.vectomatic.dom.svg.ui.SVGResource;
 
 /**
- * Simple view only containing a label.
+ * Resources for the Sample Parts extension.
  *
  * @author Edgar Mueller
  */
-public interface HelloWorldView2 extends View<HelloWorldView2.ActionDelegate> {
+public interface CustomPerspectiveResources extends ClientBundle {
 
     /**
-     * Make this view visible.
+     * Singleton instance.
+     */
+    CustomPerspectiveResources INSTANCE = GWT.create(CustomPerspectiveResources.class);
+
+    /**
+     * Declares an icon.
      *
-     * @param visible whether the view is visible
+     * @return the icon
      */
-    void setVisible(boolean visible);
-
-    /**
-     * Empty action delegate.
-     */
-    interface ActionDelegate extends BaseActionDelegate {
-
-    }
+    @Source("icons/my.svg")
+    SVGResource icon();
 }

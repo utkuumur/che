@@ -8,21 +8,20 @@
  * Contributors:
  *   Codenvy, S.A. - initial API and implementation
  *******************************************************************************/
-package org.eclipse.che.plugin.parts.ide.helloworldview;
+package org.eclipse.che.plugin.sample.perspective.ide;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
 
+import org.eclipse.che.ide.api.notification.NotificationManager;
 import org.eclipse.che.ide.api.parts.PartPresenter;
 import org.eclipse.che.ide.api.parts.PartStackView;
-import org.eclipse.che.plugin.parts.ide.SamplePartsResources;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -42,28 +41,17 @@ public class SampleViewImpl extends Composite implements SampleView, PartStackVi
     Button button;
 
     @Inject
-    public SampleViewImpl(SamplePartsResources resources, Label unavailableLabel) {
+    public SampleViewImpl(CustomPerspectiveResources resources, Label unavailableLabel, NotificationManager notificationManager) {
         initWidget(UI_BINDER.createAndBindUi(this));
         setMaximized(false);
-        button.addClickHandler(clickEvent -> com.google.gwt.user.client.Window.alert("dfsdkfjsdkjf"));
+        button.addClickHandler(clickEvent -> notificationManager.notify("Central Part", "Hello world!"));
     }
 
     /** {@inheritDoc} */
     @Override
-    public void showContainer(@NotNull IsWidget tabContainer) {
-         tabContainer.asWidget().setVisible(true);
-
+    public void show() {
+         asWidget().setVisible(true);
     }
-
-//    @Override
-//    public void onResize() {
-//        for (int i = 0; i < mainContainer.getWidgetCount(); i++) {
-//            Widget widget = mainContainer.getWidget(i);
-//            if (widget instanceof RequiresResize) {
-//                ((RequiresResize)widget).onResize();
-//            }
-//        }
-//    }
 
     /** {@inheritDoc} */
     @Override
