@@ -84,10 +84,6 @@ export class NavbarRecentWorkspacesController {
     } else {
       this.cheWorkspace.fetchWorkspaceSettings().then(() => {
         this.prepareDropdownItemsTemplate();
-      }, (error: any) => {
-        if (error.status === 304) {
-          this.prepareDropdownItemsTemplate();
-        }
       });
     }
   }
@@ -171,9 +167,9 @@ export class NavbarRecentWorkspacesController {
     if (recentWorkspaces.length > MAX_RECENT_WORKSPACES_ITEMS) {
       let pos: number = veryRecentWorkspace ? recentWorkspaces.indexOf(veryRecentWorkspace) : -1;
       if (veryRecentWorkspace && pos >= MAX_RECENT_WORKSPACES_ITEMS) {
-        recentWorkspaces.splice(MAX_RECENT_WORKSPACES_ITEMS - 1, recentWorkspaces.length , veryRecentWorkspace);
+        recentWorkspaces.splice(MAX_RECENT_WORKSPACES_ITEMS - 1, recentWorkspaces.length, veryRecentWorkspace);
       } else {
-        recentWorkspaces.splice(0, MAX_RECENT_WORKSPACES_ITEMS);
+        recentWorkspaces.splice(MAX_RECENT_WORKSPACES_ITEMS, recentWorkspaces.length);
       }
     }
 

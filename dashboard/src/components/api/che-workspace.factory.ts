@@ -439,7 +439,10 @@ export class CheWorkspace {
    */
   stopWorkspace(workspaceId: string, createSnapshot: boolean): ng.IPromise<any> {
     createSnapshot = createSnapshot === undefined ? this.getAutoSnapshotSettings() : createSnapshot;
-    return this.remoteWorkspaceAPI.stopWorkspace({workspaceId: workspaceId, createSnapshot: createSnapshot}, {}).$promise;
+    return this.remoteWorkspaceAPI.stopWorkspace({
+      workspaceId: workspaceId,
+      createSnapshot: createSnapshot
+    }, {}).$promise;
   }
 
   /**
@@ -450,7 +453,6 @@ export class CheWorkspace {
    */
   updateWorkspace(workspaceId: string, data: che.IWorkspace): ng.IPromise<any> {
     let defer = this.$q.defer();
-
     let promise = this.remoteWorkspaceAPI.updateWorkspace({workspaceId: workspaceId}, data).$promise;
     promise.then((data: che.IWorkspace) => {
       this.workspacesById.set(data.id, data);
@@ -601,13 +603,17 @@ export class CheWorkspace {
    *
    * @returns {IPromise<TResult>}
    */
-  fetchWorkspaceSettings(): ng.IPromise {
+  fetchWorkspaceSettings(): ng.IPromise<any> {
     let promise = this.remoteWorkspaceAPI.getSettings().$promise;
-    let resultPromise = promise.then((settings: any) => {
+    return promise.then((settings: any) => {
       this.workspaceSettings = settings;
+      return this.workspaceSettings;
+    }, (error: any) => {
+      if (error.status === 304) {
+        return this.workspaceSettings;
+      }
+      return this.$q.reject(error);
     });
-
-    return resultPromise;
   }
 
   /**
