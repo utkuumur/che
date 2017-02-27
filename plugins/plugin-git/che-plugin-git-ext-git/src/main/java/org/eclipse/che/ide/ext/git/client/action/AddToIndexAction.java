@@ -83,7 +83,7 @@ public class AddToIndexAction extends GitAction {
                    public void apply(Status status) throws OperationException {
                        if (containsInSelected(status.getUntracked())) {
                            presenter.showDialog();
-                       } else if (containsInSelected(status.getModified())) {
+                       } else if (containsInSelected(status.getModified()) || containsInSelected(status.getMissing())) {
                            addToIndex(console);
                        } else {
                            String message = resources.length > 1 ? constant.nothingAddToIndexMultiSelect() : constant.nothingAddToIndex();
