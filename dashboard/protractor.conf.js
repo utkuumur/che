@@ -29,12 +29,15 @@ exports.config = {
   // Capabilities to be passed to the webdriver instance.
   capabilities: {
     'browserName': 'chrome',
-    'shardTestFiles': true,
-    'maxInstances': 2,
     'chromeOptions': {
       args: ['--lang=en',
         '--window-size=1280,800']
-    }
+    },
+
+    // uncomment lines below if you want to run more than one browser instance and share tests between them.
+    // it may cause test failures!
+    //'shardTestFiles': true,
+    //'maxInstances': 2
   },
 
   baseUrl: 'http://localhost:3000',
